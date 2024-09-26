@@ -1,4 +1,4 @@
-# CloudTasks
+# CloudTasks Project
 
 ## Project Idea: Task Management System with Cloud Notifications
 
@@ -35,10 +35,18 @@ You’ll build a simple task management system that allows users to create, upda
   - `GET /tasks` - Retrieve all tasks
   - `PUT /tasks/{id}` - Update an existing task
   - `DELETE /tasks/{id}` - Delete a task
-- Use JDBC or an ORM like Hibernate to interact with the Azure SQL database.
+
+##### a. Exception Handling
+- Create a custom exception class (e.g., `TaskNotFoundException`).
+- Implement a global exception handler using `@ControllerAdvice`.
+- Modify the Task Service to handle exceptions appropriately.
+
+##### b. Unit Testing
+- Add dependencies for testing using JUnit and Mockito.
+- Create a test class for the TaskService to verify functionality.
 
 #### Step 3: Implement Notification Logic (Using AWS Lambda)
-- Create a Lambda function that checks for tasks that are overdue (for example, tasks that are not completed after a certain date).
+- Create a Lambda function that checks for tasks that are overdue.
 - Use the AWS SDK to send notifications (could be an email, for example) to users regarding overdue tasks.
 
 #### Step 4: Schedule the Lambda Function (Using CloudWatch)
@@ -58,6 +66,10 @@ You’ll build a simple task management system that allows users to create, upda
   - `ChangeType` (Created, Updated, Deleted)
   - `ChangeDate`
 
+### Security Considerations
+- Never log sensitive information such as passwords. Ensure that error messages do not expose sensitive details.
+- Implement proper authorization (JWT or OAuth2) if you plan to expand this project for user authentication.
+
 ### Learning Outcomes
 By building this project, you’ll learn how to:
 - Work with AWS Lambda and CloudWatch for serverless computing.
@@ -66,4 +78,7 @@ By building this project, you’ll learn how to:
 - Utilize Postman for testing APIs.
 - Implement code quality checks using SonarQube.
 - Understand the principles of task scheduling and notifications in a cloud environment.
+- Handle exceptions effectively in your code.
+- Write unit tests for better code reliability.
+- Differentiate between classes and objects, and understand their roles in object-oriented programming.
 
