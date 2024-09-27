@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.4'
     id 'io.spring.dependency-management' version '1.1.6'
+    id 'com.github.johnrengelman.shadow' version '7.1.0' // For creating a fat JAR
 }
 
 group = 'com.example'
@@ -30,15 +31,27 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    // Use implementation for the SQL Server JDBC driver
+    // SQL Server JDBC driver
     implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.0.jre17'
     
-    // Add JUnit 5 dependency for testing
+    // JUnit 5 for testing
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // AWS Lambda dependencies
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.2'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.11.0'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Task for creating a fat JAR with a custom name
+shadowJar {
+    archiveBaseName.set('CloudTasks') // Set the base name
+    archiveClassifier.set('all')        // This keeps the "-all" suffix
+    archiveVersion.set(version)         // Set the version
+    minimize()                          // Minimizes the final JAR file size
 }
 
