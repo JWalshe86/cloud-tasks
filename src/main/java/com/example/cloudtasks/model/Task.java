@@ -1,19 +1,25 @@
-package com.example.cloudtasks.model; // Correct package declaration
+package com.example.cloudtasks.model; // Only one package declaration
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*; // Update to jakarta for JPA annotations
+import jakarta.validation.constraints.*; // Update to jakarta for validation annotations
 import java.time.LocalDateTime;
 
 @Entity
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
+
+    @NotBlank(message = "Title cannot be blank") // Ensures title is not empty
     private String title;
+
+    @Size(max = 500, message = "Description cannot exceed 500 characters") // Limits the description length
     private String description;
+
+    @NotBlank(message = "Status cannot be blank") // Ensures status is not empty
     private String status; // e.g., Pending, Completed
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -66,4 +72,5 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 }
+
 
