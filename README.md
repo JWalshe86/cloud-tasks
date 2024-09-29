@@ -112,7 +112,7 @@ You’ll build a simple task management system that allows users to create, upda
 
 #### Step 6: Code Quality (Using SonarQube)
 - Set up SonarQube in your project to analyze the Java code quality.
-- Ensure you address any code smells or vulnerabilities it identifies.
+https://www.linkedin.com/in/valeriylysenko/- Ensure you address any code smells or vulnerabilities it identifies.
 
 **Additional Tasks:**
 - Customize SonarQube rules to suit your coding standards.
