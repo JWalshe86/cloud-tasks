@@ -20,7 +20,7 @@ You’ll build a simple task management system that allows users to create, upda
 - **SQL Commands**: To interact with your Azure SQL database.
 
 ### Step 1: Set Up Your Development Environment
-- [ ] **Download Visual Studio**: Install Visual Studio for writing and debugging your C# code.
+- [x] **Download Visual Studio**: Install Visual Studio for writing and debugging your C# code.
 - [ ] **Set up Azure SQL Database**:
   - [ ] Create a table for tasks (`TaskId`, `Title`, `Description`, `Status`, `DueDate`, `CreatedAt`, `UpdatedAt`).
   - [ ] Create a change log table to track updates and modifications.
